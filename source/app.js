@@ -45,7 +45,7 @@ navLinks.forEach((link) => {
 
     // jika login arahkan ke halaman login
     if (link.classList.contains("login")) {
-      window.location.href = "yusron_2/login.html";
+      window.location.href = "login.html";
     }
 
     setTimeout(() => {
