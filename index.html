@@ -7,8 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
@@ -25,20 +23,47 @@
     <section class="contact" id="contact">
       <h2 class="heading">Please <span>Login</span></h2>
 
-      <form action="menu.html">
+      <!-- Tambahkan onsubmit -->
+      <form onsubmit="return checkLogin()">
         <div class="input-box">
-          <input type="text" placeholder="Username" required />
-          <input type="password" placeholder="Password" required />
+          <!-- Tambahkan id -->
+          <input type="text" id="username" placeholder="Username" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
         </div>
 
         <input type="submit" value="Login" class="btn" />
       </form>
     </section>
 
-  
     <!-- typed js -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <!-- my script -->
     <script src="source/app.js"></script>
+
+    <!-- script login -->
+    <script>
+      function checkLogin() {
+        // username dan password yang diperbolehkan
+        const allowedUsername = "admin";
+        const allowedPassword = "1234";
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (username === allowedUsername && password === allowedPassword) {
+          // login berhasil
+          window.location.href = "menu.html";
+          return false; // mencegah submit form default
+        } else {
+          alert("Username atau password salah!");
+          return false; // mencegah submit form default
+        }
+      }
+    </script>
   </body>
 </html>
